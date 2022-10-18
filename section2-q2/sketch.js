@@ -30,6 +30,6 @@ function setup() {
      } else if (j > 4 && i % 2 == 1 && j % 2 == 0) {
       fill('black');
       circle(size * i + (size / 2), size * j + (size / 2), size - 5);
-    }}
+    }} // creates 3 rows of black checker pieces
   }
 }
