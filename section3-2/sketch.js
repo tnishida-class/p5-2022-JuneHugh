@@ -36,6 +36,8 @@ function draw(){
     vy = (-1 * vy);
    }
    vy += g;
+   // constrain is just a limit!!! the number at which it starts, and 
+   // how small and large the number can get!
    vy = constrain(vy, -vyMax, vyMax);
    x = constrain (x, 0, width);
    y = constrain (y, 0, height);
