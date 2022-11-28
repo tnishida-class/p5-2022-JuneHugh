@@ -6,6 +6,7 @@ function setup(){
   fill(0);
   crossmark(10, 10, 90, 90);
   ngmark(150, 50, 80);
+  // polygon with 9 points / sides
   regularPolygon(9, 250, 50, 40);
 }
 
@@ -24,6 +25,10 @@ function ngmark(cx, cy, r){
   pop(); // switches back to the main branch so that the settings are remembered.
 }
 
+// switched name of function from stars to regularPolygon
+// added another argument that gives the user the ability
+// to add any number of sides so that it can create a polygon of
+// any shape. 
 function regularPolygon(n, cx, cy, r){
   beginShape();
   for(var i = 0; i < n; i++){
