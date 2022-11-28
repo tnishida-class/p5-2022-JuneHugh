@@ -8,11 +8,13 @@ function setup(){
   let scores = [];
   for(let i = 0; i < 10; i++){
     scores[i] = random(20, 100); // 60以上100未満のランダムな数を代入
-  }
+  } // for
 
   // 横線を引く
   const n = 10;
-  for(let i = 0; i < n; i++){ line(0, height * i / n, width, height * i / n); }
+  for(let i = 0; i < n; i++) {
+    line(0, height * i / n, width, height * i / n);
+  } // for
 
   // ここからが本番
   fill(0);
@@ -20,5 +22,7 @@ function setup(){
   let px, py; // 線を引くために一つ前の点を覚えておく変数
   for(let i = 0; i < scores.length; i++){
     // BLANK[1]
-  }
+    circle(i * dx + 20, scores[i], 10);
+    line(i * dx + 20, scores[i], (i + 1) * dx + 20, scores[i + 1]);
+  } // for
 }

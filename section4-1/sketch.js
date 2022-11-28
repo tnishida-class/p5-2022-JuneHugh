@@ -20,31 +20,64 @@ function setup(){
   // ここから平均・最大・最小を求めます
   let average, largest, smallest;
   // BLANK[1]　平均値（ヒント average = 合計 / 配列の長さ）
+  average = sum / scores.length;
+  
 
   largest = 0;
+  // if the largest (which starts at 0) is less than a score
+  // then largest will be reassigned to the score.
   for(let i = 0; i < scores.length; i++){
     // BLANK[2]　ヒント：今までの最大値 largest と scores[i] を比較する
-  }
+    if(scores[i] > largest) {
+      largest = scores[i];
+    } // if
+  } // for
 
   smallest = 100;
   for(let i = 0; i < scores.length; i++){
     // BLANK[3]　ヒント：最小値とだいたい同じ
-  }
+    // if the smallest (which starts at 100)
+    // is greater than scores[i], then smallest
+    // will be reassigned to the score
+    if(scores[i] < smallest) {
+      smallest = scores[i];
+    } // if
+  } // for
 
   // ここから棒グラフを描いていきます。まずは背景に横線をn本引く
   const n = 10;
-  for(let i = 0; i < n; i++){ line(0, height * i / n, width, height * i / n); }
-  
+
+  // prints the horizontal lines throughout the canvas
+  for(let i = 0; i < n; i++) {
+    line(0, height * i / n, width, height * i / n);
+  } // for
+
+
   noStroke();
 
+  // creates all the rectangles for the graph
   for(let i = 0; i < scores.length; i++){
     const dx = width / scores.length;
     const h = height * scores[i] / 100;
     // BLANK[4] ヒント: 条件分岐を使って色を変更します
+    // checks to see if the data value is equal to the largest or smallest
+    // then colors the max red and the min blue.
+    if(scores[i] == largest) {
+      fill('red');
+    } else if(scores[i] == smallest){
+      fill('blue');
+    } else {
+      fill('grey');
+    }// if
     rect(i * dx + 2, height - h, dx - 4, h);
     fill(0);
     text(scores[i].toPrecision(3), i * dx, height - h);
   }
 
   // BLANK[5] 平均点の線を引きます
+  // makes a green average line
+  stroke('green');
+  line(0, height - (average * height / 100), width, height - (average * height / 100));
+  noStroke();
+  text(average.toPrecision(3), 0, height - (average * height / 100));
 }

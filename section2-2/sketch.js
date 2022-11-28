@@ -7,7 +7,7 @@
 function setup() {
   createCanvas(100,100);
   background(196);
-  for(let i = 0; i < 9; i++){
+ /* for(let i = 0; i < 9; i++){
     // 変えるのはここから
     if(i % 2 == 0){
       strokeWeight(2);
@@ -18,5 +18,17 @@ function setup() {
     // ここまでの間になります
     let x = i * 10 + 10;
     line(x, 0, x, 100);
+  }*/
+
+
+  /*line(10, 0, 10, 100);
+  line(20, 0, 20, 100);
+  line(30, 0, 30, 100);*/
+
+  let x = 10;
+  for(let i = 0; i < 9; i++) {
+    //circle(x, 0, x, 100);
+    x += 10;
   }
+  circle(50, 50, 50);
 }
